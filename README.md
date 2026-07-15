@@ -84,6 +84,47 @@ https://drive.google.com/drive/folders/1jliHJ2WPXjWV5geIZWfWRzaZk5Jou9Os?usp=dri
 - Cross-browser Support
 - More lightweight local AI models
 
+  ## ARCHITECTURE.md
+                          +----------------------+
+                        |        User          |
+                        +----------+-----------+
+                                   |
+                                   | Opens Extension /
+                                   | Selects Text
+                                   v
+                  +----------------+----------------+
+                  |   Veris Chrome Extension        |
+                  | (Popup UI + Content Script)     |
+                  +----------------+----------------+
+                                   |
+                     Selected Text / User Prompt
+                                   |
+                                   v
+                    +--------------+--------------+
+                    |    AI Processing Layer      |
+                    |  (On-Device AI / Runtime)   |
+                    +--------------+--------------+
+                                   |
+                     AI Analysis / Response
+                                   |
+                                   v
+                 +-----------------+-----------------+
+                 |   Response Formatter & UI         |
+                 +-----------------+-----------------+
+                                   |
+                                   |
+                                   v
+                          +--------+--------+
+                          |       User      |
+                          +-----------------+
+  | Field         | Example (sirf illustration)                   |
+| ------------- | --------------------------------------------- |
+| Model Runtime | Transformers.js / ONNX Runtime Web / WebLLM   |
+| Model Size    | 500 MB / 1.2 GB / 80 MB                       |
+| Quantization  | INT8 / INT4 / FP16                            |
+| CPU Usage     | ~15–25% during inference (hardware dependent) |
+
+
 ## Contributors
 
 - Shivam 
